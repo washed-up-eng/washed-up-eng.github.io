@@ -1,0 +1,68 @@
+---
+interface CTASet {
+	resume: string;
+	contact: string;
+	github: string;
+}
+
+interface Props {
+	prompt: string;
+	ctas: CTASet;
+}
+
+const { prompt, ctas } = Astro.props;
+---
+
+<section class="cta-band" aria-label="Final call to action">
+	<p>{prompt}</p>
+	<div class="cta-row">
+		<a href={ctas.resume} class="button">View Resume</a>
+		<a href={ctas.contact} class="button" target="_blank" rel="noreferrer">Contact Sijae</a>
+		<a href={ctas.github} class="text-link" target="_blank" rel="noreferrer">GitHub</a>
+	</div>
+</section>
+
+<style>
+	.cta-band {
+		padding: 1.4rem;
+		border-radius: 1rem;
+		background: linear-gradient(140deg, rgba(19, 94, 98, 0.95), rgba(32, 126, 122, 0.92));
+		color: #f2fbfb;
+		display: grid;
+		gap: 0.8rem;
+		box-shadow: 0 14px 35px rgba(10, 66, 67, 0.26);
+	}
+
+	p {
+		margin: 0;
+		font-size: 1.08rem;
+		line-height: 1.7;
+	}
+
+	.cta-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.7rem;
+	}
+
+	.button {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.62rem 0.95rem;
+		border-radius: 0.68rem;
+		text-decoration: none;
+		font-family: 'Space Grotesk', sans-serif;
+		font-weight: 700;
+		background: rgba(255, 255, 255, 0.16);
+		color: #f6fffe;
+		border: 1px solid rgba(255, 255, 255, 0.22);
+	}
+
+	.text-link {
+		align-self: center;
+		color: #eafdf9;
+		font-weight: 700;
+		text-underline-offset: 0.24em;
+		text-decoration-thickness: 2px;
+	}
+</style>

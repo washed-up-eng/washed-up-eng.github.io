@@ -1,0 +1,114 @@
+---
+interface CaseStudy {
+	title: string;
+	challenge: string;
+	actions: string;
+	result: string;
+	artifact: string;
+}
+
+interface Props {
+	studies: CaseStudy[];
+	principles: string[];
+}
+
+const { studies, principles } = Astro.props;
+---
+
+<section class="panel" aria-labelledby="case-heading">
+	<h2 id="case-heading">Featured Case Studies</h2>
+	<div class="studies">
+		{studies.map((study, index) => (
+			<article class="study" style={`animation-delay: ${index * 120}ms`}>
+				<h3>{study.title}</h3>
+				<p><strong>Challenge:</strong> {study.challenge}</p>
+				<p><strong>Actions:</strong> {study.actions}</p>
+				<p><strong>Result:</strong> {study.result}</p>
+				<p class="artifact">Artifact signal: {study.artifact}</p>
+			</article>
+		))}
+	</div>
+	<div class="principles">
+		<h3>Working Style</h3>
+		<ul>
+			{principles.map((principle) => <li>{principle}</li>)}
+		</ul>
+	</div>
+</section>
+
+<style>
+	.panel {
+		padding: 1.5rem;
+		border-radius: 1rem;
+		background: var(--card);
+		border: 1px solid rgba(26, 89, 95, 0.18);
+		display: grid;
+		gap: 1rem;
+	}
+
+	h2,
+	h3 {
+		margin: 0;
+		font-family: 'Space Grotesk', sans-serif;
+	}
+
+	.studies {
+		display: grid;
+		gap: 0.9rem;
+	}
+
+	.study {
+		padding: 1.15rem;
+		border-radius: 0.9rem;
+		border: 1px solid rgba(27, 98, 105, 0.2);
+		background: rgba(248, 255, 255, 0.56);
+		display: grid;
+		gap: 0.45rem;
+		animation: study-rise 520ms ease both;
+	}
+
+	.study p {
+		margin: 0;
+		line-height: 1.68;
+		color: var(--steel);
+	}
+
+	.study strong {
+		color: var(--ink);
+	}
+
+	.artifact {
+		font-size: 0.94rem;
+		font-weight: 700;
+		color: var(--ink);
+	}
+
+	.principles {
+		padding: 1rem;
+		border-radius: 0.9rem;
+		background: rgba(218, 240, 236, 0.45);
+		border: 1px solid rgba(27, 98, 105, 0.16);
+	}
+
+	ul {
+		margin: 0.65rem 0 0;
+		padding-left: 1.2rem;
+		display: grid;
+		gap: 0.4rem;
+	}
+
+	li {
+		line-height: 1.6;
+	}
+
+	@keyframes study-rise {
+		from {
+			opacity: 0;
+			transform: translateY(10px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>

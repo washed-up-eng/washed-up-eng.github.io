@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Sijae Brown | Resume" description="Resume snapshot for Sijae Brown, Technical Program Manager.">
+	<main>
+		<section class="panel">
+			<p class="eyebrow">Resume</p>
+			<h1>Sijae Brown</h1>
+			<p class="subtitle">Technical Program Manager for startup execution</p>
+			<p>
+				I lead cross-functional programs that move from ambiguity to shipped outcomes.
+				This page is a quick resume snapshot while a downloadable PDF is being finalized.
+			</p>
+			<ul>
+				<li>Launch ownership across product, engineering, design, and operations</li>
+				<li>Delivery systems that improve reliability without slowing velocity</li>
+				<li>Clear artifacts: roadmaps, launch plans, decision memos, and KPI dashboards</li>
+			</ul>
+			<div class="row">
+				<a href="/" class="button">Back to Portfolio</a>
+				<a href="https://www.linkedin.com/in/sijae-brown/" class="text-link" target="_blank" rel="noreferrer">Contact on LinkedIn</a>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		max-width: 860px;
+		margin: 0 auto;
+		padding: 3rem 1.25rem 4rem;
+	}
+
+	.panel {
+		padding: 1.6rem;
+		border-radius: 1rem;
+		background: var(--card);
+		border: 1px solid rgba(26, 89, 95, 0.2);
+		display: grid;
+		gap: 0.8rem;
+	}
+
+	.eyebrow {
+		margin: 0;
+		font-family: 'Space Grotesk', sans-serif;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		font-size: 0.78rem;
+		color: var(--steel);
+	}
+
+	h1 {
+		margin: 0;
+		font-family: 'Space Grotesk', sans-serif;
+		font-size: clamp(2rem, 5vw, 3rem);
+	}
+
+	.subtitle {
+		margin: 0;
+		font-weight: 700;
+	}
+
+	p {
+		margin: 0;
+		line-height: 1.75;
+	}
+
+	ul {
+		margin: 0.2rem 0;
+		padding-left: 1.2rem;
+		display: grid;
+		gap: 0.45rem;
+	}
+
+	.row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.8rem;
+		align-items: center;
+	}
+
+	.button {
+		padding: 0.6rem 0.92rem;
+		border-radius: 0.68rem;
+		text-decoration: none;
+		font-family: 'Space Grotesk', sans-serif;
+		font-weight: 700;
+		color: #f8fefe;
+		background: linear-gradient(115deg, var(--accent) 0%, var(--accent-soft) 100%);
+	}
+
+	.text-link {
+		font-weight: 700;
+		color: var(--ink);
+		text-decoration-thickness: 2px;
+		text-underline-offset: 0.2em;
+	}
+</style>

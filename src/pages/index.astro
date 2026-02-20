@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ImpactCards from '../components/ImpactCards.astro';
+import CaseStudyList from '../components/CaseStudyList.astro';
+import CTAFooter from '../components/CTAFooter.astro';
+
+const ctas = {
+	resume: '/resume',
+	contact: 'https://www.linkedin.com/in/sijae-brown/',
+	github: 'https://github.com/washed-up-eng',
+};
+
+const impactCards = [
+	{
+		title: 'Launches shipped',
+		stat: '12 launches',
+		detail: 'Took multiple 0 to 1 programs from concept to release at startup pace.',
+	},
+	{
+		title: 'Cross-functional leadership',
+		stat: '4 core functions',
+		detail: 'Aligned engineering, product, design, and operations around shared milestones.',
+	},
+	{
+		title: 'Execution metrics',
+		stat: '91% on-time',
+		detail: 'Raised delivery reliability through milestone checkpoints and active risk tracking.',
+	},
+];
+
+const caseStudies = [
+	{
+		title: 'Enterprise Onboarding Program',
+		challenge: 'New enterprise customers were waiting weeks for baseline setup and data access.',
+		actions:
+			'Built a cross-functional launch plan with clear handoffs, weekly readiness reviews, and an escalation lane for blockers.',
+		result: 'Reduced time-to-onboard by 38% and increased first-month product activation.',
+		artifact: 'Launch plan',
+	},
+	{
+		title: 'Reliability Recovery Initiative',
+		challenge: 'Recurring incidents were interrupting delivery and draining engineering cycles.',
+		actions:
+			'Introduced a decision memo cadence, milestone-based de-risking, and transparent ownership dashboards.',
+		result: 'Lowered repeat incidents by 42% while keeping roadmap commitments on track.',
+		artifact: 'Decision memo',
+	},
+	{
+		title: 'Usage Analytics Rollout',
+		challenge: 'Teams lacked a shared source of truth for adoption and release quality metrics.',
+		actions:
+			'Defined KPI standards, partnered with product and data, and shipped a dashboard used in weekly reviews.',
+		result: 'Cut reporting prep time in half and improved release decision speed.',
+		artifact: 'Metrics dashboard',
+	},
+];
+
+const principles = [
+	'Align quickly, document clearly',
+	'De-risk early with milestones',
+	'Keep decision logs visible',
+	'Balance speed with reliability',
+];
+---
+
+<Layout title="Sijae Brown | Technical Program Manager" description="Narrative portfolio for startup TPM leadership and execution impact.">
+	<main>
+		<Hero
+			eyebrow="Technical Program Manager"
+			name="Sijae Brown"
+			subhead="Technical Program Manager for startup execution"
+			valueStatement="I turn ambiguity into shipped outcomes with crisp alignment, reliable execution, and clear decision-making."
+			ctas={ctas}
+		/>
+
+		<ImpactCards cards={impactCards} />
+
+		<CaseStudyList studies={caseStudies} principles={principles} />
+
+		<CTAFooter
+			prompt="If you are hiring a TPM to make high-ambiguity work shippable, let's talk."
+			ctas={ctas}
+		/>
+	</main>
+</Layout>
+
+<style>
+	main {
+		max-width: 1080px;
+		margin: 0 auto;
+		padding: 3.5rem 1.25rem 5rem;
+		display: grid;
+		gap: 1.2rem;
+	}
+
+	@media (max-width: 820px) {
+		main {
+			padding-top: 2.5rem;
+			gap: 1rem;
+		}
+	}
+</style>

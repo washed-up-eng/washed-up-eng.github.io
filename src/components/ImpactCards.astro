@@ -1,0 +1,110 @@
+---
+interface ImpactCard {
+	title: string;
+	stat: string;
+	detail: string;
+}
+
+interface Props {
+	cards: ImpactCard[];
+}
+
+const { cards } = Astro.props;
+---
+
+<section class="panel" aria-labelledby="impact-heading">
+	<div class="section-head">
+		<h2 id="impact-heading">Impact Snapshots</h2>
+		<p>Proof from cross-functional delivery</p>
+	</div>
+	<div class="cards">
+		{cards.map((card, index) => (
+			<article class="card" style={`animation-delay: ${index * 90}ms`}>
+				<h3>{card.title}</h3>
+				<p class="stat">{card.stat}</p>
+				<p>{card.detail}</p>
+			</article>
+		))}
+	</div>
+</section>
+
+<style>
+	.panel {
+		padding: 1.5rem;
+		border-radius: 1rem;
+		background: var(--card);
+		border: 1px solid rgba(26, 89, 95, 0.18);
+	}
+
+	.section-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 0.75rem;
+	}
+
+	h2 {
+		margin: 0;
+		font-family: 'Space Grotesk', sans-serif;
+		font-size: 1.2rem;
+	}
+
+	.section-head p {
+		margin: 0;
+		font-size: 0.93rem;
+		color: var(--steel);
+	}
+
+	.cards {
+		margin-top: 0.95rem;
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 0.8rem;
+	}
+
+	.card {
+		padding: 1rem;
+		border-radius: 0.9rem;
+		border: 1px solid rgba(27, 98, 105, 0.18);
+		background: rgba(252, 255, 255, 0.65);
+		display: grid;
+		gap: 0.5rem;
+		animation: card-rise 450ms ease-out both;
+	}
+
+	h3 {
+		margin: 0;
+		font-size: 0.96rem;
+		font-family: 'Space Grotesk', sans-serif;
+	}
+
+	.stat {
+		margin: 0;
+		font-size: 1.35rem;
+		font-weight: 800;
+		line-height: 1.1;
+	}
+
+	.card p {
+		margin: 0;
+		line-height: 1.65;
+		color: var(--steel);
+	}
+
+	@keyframes card-rise {
+		from {
+			opacity: 0;
+			transform: translateY(9px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@media (max-width: 920px) {
+		.cards {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
