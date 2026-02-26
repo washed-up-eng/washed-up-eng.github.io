@@ -1,44 +1,177 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const profile = {
+	name: 'Sijae Brown',
+	title: 'Senior Product Manager',
+	location: 'Boulder, Colorado',
+	linkedin: 'https://www.linkedin.com/in/sijae-brown-54331489/',
+	github: 'https://github.com/washed-up-eng',
+};
+
+const summary =
+	'Senior Product Manager with a background in applied AI, large-scale systems automation, and zero-to-one product development. Proven track record leading complex, cross-functional initiatives across defense, climate research, and healthcare technology to translate ambiguous, high-stakes problems into scalable, production-grade systems. Combines deep technical fluency with strategic program execution to modernize legacy workflows, operationalize algorithmic decision-making, and deliver measurable business impact in regulated and mission-critical environments. In short, I turn ambiguity into execution, tribal knowledge into systems, and ambitious ideas into infrastructure that scales.';
+
+const highlights = [
+	'eChart platform now supports 100% of patient visits over the last 3 years.',
+	'Automated billing and payout workflows across 85%+ of visit volume.',
+	'Reduced billing operations time by over 75% through end-to-end automation.',
+	'Reduced PHI sharing time from 8 minutes to seconds with HIPAA-compliant document workflows.',
+];
+
+const experience = [
+	{
+		company: 'Float Health',
+		role: 'Senior Product Manager',
+		period: '11/2022 - Present',
+		location: 'Boulder, Colorado, United States',
+		bullets: [
+			'Drove end-to-end automation of a high-variance staffing process by developing the Automated Nurse Selector, turning tacit operational knowledge into a zero-touch workflow.',
+			'Automated compliance guardrails and supply quality with continuous multi-state license verification and behavior-feedback loops for marketplace reliability.',
+			'Spearheaded zero-to-one development of Float\'s proprietary eChart, establishing a core clinical data layer that powers 100% of patient visits.',
+			'Partnered with product leadership to launch the Float Nurse App, moving workforce coordination from ad hoc SMS scheduling to a scalable React-based platform.',
+			'Led migration to secure HIPAA-compliant document management, reducing PHI sharing time from 8 minutes to seconds.',
+			'Led strategy for Invoicing and Payout Automation with Stripe integrations that schedule nurse payouts and trigger pharmacy invoices from eChart submission.',
+			'Reduced billing operations time by over 75% by automating billing for over 85% of visit volume.',
+		],
+	},
+	{
+		company: 'Upstream Tech',
+		role: 'Machine Learning Engineer',
+		period: '11/2021 - 11/2022',
+		location: 'Boulder, Colorado',
+		bullets: [
+			'Investigated hydrologic drivers of climate-induced streamflow variability using snowpack, precipitation, soil moisture, and teleconnection indices.',
+			'Built evaluation metrics and diagnostic visualizations in model assessment dashboards for reproducible basin and forecast-horizon comparisons.',
+			'Presented seasonal hydroclimate forecasting research under climate-change scenarios at the 2022 AGU Chapman Conference.',
+		],
+	},
+	{
+		company: 'Lockheed Martin Space',
+		role: 'Research Scientist - Machine Learning and Artificial Intelligence',
+		period: '11/2019 - 09/2021',
+		location: 'Colorado',
+		bullets: [
+			'Developed and evaluated object detection and classification models on large geospatial sensor datasets to reduce false detection throughput.',
+			'Adapted state-of-the-art detection architectures for domain shift, sparse labeling, and sensor-specific artifacts under operational constraints.',
+			'Led two internal applied AI research programs end-to-end, including technical execution, transition planning, and customer demonstrations.',
+			'Directed cross-division collaboration across three Lockheed organizations to integrate multi-source detection and fusion algorithms and execute live flight demonstrations.',
+		],
+	},
+	{
+		company: 'Lockheed Martin Aeronautics',
+		role: 'AI Software Engineer',
+		period: '06/2017 - 11/2019',
+		location: 'F-35 and Advanced Development Programs',
+		bullets: [
+			'Served as Technical Lead and Project Manager for a multi-agent deep imitation learning system using LSTM-based architectures for sequential decision modeling.',
+			'Led technical white paper development for JAIC and DARPA submissions, translating prototype outcomes into formal program proposals.',
+			'Advanced single-agent imitation learning algorithms for the Vega Project from concept to validated demonstration.',
+			'Contributed to formal validation of safety-critical mission system software in controlled test environments.',
+		],
+	},
+];
+
+const education = [
+	{
+		school: 'University of Missouri-Columbia',
+		period: '01/2012 - 01/2017',
+	},
+];
+
+const skills = [
+	'0-to-1 Product Development',
+	'Agile Application Development',
+	'Algorithm Design',
+	'Cross-Functional Leadership',
+	'Data Structuring and Architecture',
+	'End-to-End Product Lifecycle',
+	'Marketplace Economics',
+	'MySQL',
+	'Rules Engines and Automation',
+	'Two-Sided Marketplaces',
+];
 ---
 
-<Layout title="Sijae Brown | Resume" description="Resume snapshot for Sijae Brown, Technical Program Manager.">
+<Layout title="Sijae Brown | Resume" description="Senior Product Manager resume for Sijae Brown.">
 	<main>
-		<section class="panel">
+		<section class="section hero">
 			<p class="eyebrow">Resume</p>
-			<h1>Sijae Brown</h1>
-			<p class="subtitle">Technical Program Manager for startup execution</p>
-			<p>
-				I lead cross-functional programs that move from ambiguity to shipped outcomes.
-				This page is a quick resume snapshot while a downloadable PDF is being finalized.
-			</p>
+			<h1>{profile.name}</h1>
+			<p class="title">{profile.title}</p>
+			<p class="meta">{profile.location} <span aria-hidden="true">•</span> <a href={profile.linkedin} target="_blank" rel="noreferrer noopener">LinkedIn</a></p>
+			<p>{summary}</p>
+		</section>
+
+		<section class="section">
+			<h2>Core Impact Highlights</h2>
 			<ul>
-				<li>Launch ownership across product, engineering, design, and operations</li>
-				<li>Delivery systems that improve reliability without slowing velocity</li>
-				<li>Clear artifacts: roadmaps, launch plans, decision memos, and KPI dashboards</li>
+				{highlights.map((item) => <li>{item}</li>)}
 			</ul>
-			<div class="row">
-				<a href="/" class="button">Back to Portfolio</a>
-				<a href="https://www.linkedin.com/in/sijae-brown/" class="text-link" target="_blank" rel="noreferrer">Contact on LinkedIn</a>
+		</section>
+
+		<section class="section">
+			<h2>Work Experience</h2>
+			<div class="roles">
+				{experience.map((entry) => (
+					<article class="role">
+						<div class="role-head">
+							<h3>{entry.role}</h3>
+							<p>{entry.period}</p>
+						</div>
+						<p class="company">{entry.company}</p>
+						<p class="location">{entry.location}</p>
+						<ul>
+							{entry.bullets.map((bullet) => <li>{bullet}</li>)}
+						</ul>
+					</article>
+				))}
 			</div>
+		</section>
+
+		<section class="section split">
+			<div>
+				<h2>Education</h2>
+				{education.map((item) => (
+					<p><strong>{item.school}</strong><br />{item.period}</p>
+				))}
+			</div>
+			<div>
+				<h2>Skills</h2>
+				<ul class="skills">
+					{skills.map((skill) => <li>{skill}</li>)}
+				</ul>
+			</div>
+		</section>
+
+		<section class="section cta">
+			<a href="/" class="button">Back to Portfolio</a>
+			<a href={profile.github} class="text-link" target="_blank" rel="noreferrer noopener">GitHub</a>
+			<a href={profile.linkedin} class="text-link" target="_blank" rel="noreferrer noopener">LinkedIn</a>
 		</section>
 	</main>
 </Layout>
 
 <style>
 	main {
-		max-width: 860px;
+		max-width: 980px;
 		margin: 0 auto;
 		padding: 3rem 1.25rem 4rem;
+		display: grid;
+		gap: 1rem;
 	}
 
-	.panel {
-		padding: 1.6rem;
+	.section {
+		padding: 1.35rem;
 		border-radius: 1rem;
 		background: var(--card);
-		border: 1px solid rgba(26, 89, 95, 0.2);
+		border: 1px solid rgba(26, 89, 95, 0.18);
 		display: grid;
-		gap: 0.8rem;
+		gap: 0.7rem;
+	}
+
+	.hero {
+		background: linear-gradient(155deg, rgba(252, 255, 255, 0.9), rgba(225, 241, 239, 0.86));
 	}
 
 	.eyebrow {
@@ -50,30 +183,92 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--steel);
 	}
 
-	h1 {
+	h1,
+	h2,
+	h3,
+	.title {
 		margin: 0;
 		font-family: 'Space Grotesk', sans-serif;
-		font-size: clamp(2rem, 5vw, 3rem);
 	}
 
-	.subtitle {
-		margin: 0;
+	h1 {
+		font-size: clamp(2.1rem, 5vw, 3.1rem);
+	}
+
+	.title {
+		font-size: 1.1rem;
 		font-weight: 700;
+	}
+
+	.meta,
+	.location {
+		margin: 0;
+		color: var(--steel);
 	}
 
 	p {
 		margin: 0;
-		line-height: 1.75;
+		line-height: 1.7;
 	}
 
 	ul {
-		margin: 0.2rem 0;
+		margin: 0;
 		padding-left: 1.2rem;
 		display: grid;
 		gap: 0.45rem;
 	}
 
-	.row {
+	li {
+		line-height: 1.6;
+	}
+
+	.roles {
+		display: grid;
+		gap: 0.85rem;
+	}
+
+	.role {
+		padding: 1rem;
+		border-radius: 0.9rem;
+		background: rgba(248, 255, 255, 0.56);
+		border: 1px solid rgba(27, 98, 105, 0.16);
+		display: grid;
+		gap: 0.5rem;
+	}
+
+	.role-head {
+		display: flex;
+		justify-content: space-between;
+		gap: 0.7rem;
+		align-items: baseline;
+	}
+
+	.role-head p,
+	.company {
+		font-weight: 700;
+	}
+
+	.split {
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+	}
+
+	.skills {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.45rem;
+	}
+
+	.skills li {
+		padding: 0.3rem 0.55rem;
+		border-radius: 999px;
+		background: rgba(22, 102, 104, 0.12);
+		font-size: 0.9rem;
+	}
+
+	.cta {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.8rem;
@@ -95,5 +290,16 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--ink);
 		text-decoration-thickness: 2px;
 		text-underline-offset: 0.2em;
+	}
+
+	@media (max-width: 860px) {
+		.split {
+			grid-template-columns: 1fr;
+		}
+
+		.role-head {
+			flex-direction: column;
+			align-items: flex-start;
+		}
 	}
 </style>
