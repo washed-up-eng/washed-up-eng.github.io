@@ -31,42 +31,48 @@ const impactCards = [
 
 const caseStudies = [
 	{
-		title: 'Automated Nurse Selector (Float)',
-		challenge:
-			'Manual nurse assignment was slowing down care coordination and making staffing decisions inconsistent under growth pressure.',
-		actions:
-			'Defined matching criteria with engineering and operations, drove cross-functional implementation, and established rollout checkpoints with feedback loops.',
-		result:
-			'Shipped an automated selector that improved assignment consistency and helped teams scale scheduling without increasing operational overhead.',
-		artifact: 'Decision framework and matching rules',
+		title: 'Clinical Staffing Engine',
+		problem:
+			'Staffing decisions relied on tacit operational knowledge and informal coordination, introducing bias, variability and scale constraints under growth pressure.',
+		insight:
+			'Inconsistency was not a people problem; it was a systems problem. Critical matching logic lived in undocumented heuristics, with regulatory constraints and acuity signals applied unevenly across operators.',
+		systemBuilt:
+			'Encoded nurse skillsets, regulatory constraints and patient acuity into a production-grade matching engine, converting tribal knowledge into structured, enforceable decision logic.',
+		businessShift:
+			'Transformed a high-variance, manually curated workflow into scalable infrastructure, unlocking growth without proportional scheduling headcount, standardizing decision quality, and reducing operational entropy.',
+		artifact: 'Matching logic architecture + deployment instrumentation',
 	},
 	{
-		title: 'Document Management v2 (Float)',
-		challenge:
-			'HIPAA-sensitive document workflows were too slow and error-prone, delaying care operations and raising compliance risk.',
-		actions:
-			'Led a modernization program across product, engineering, and operations, sequencing milestones and proactively managing launch risks.',
-		result:
-			'Reduced PHI sharing time from 8 minutes to seconds with a more reliable, auditable workflow for frontline teams.',
-		artifact: 'Launch plan and risk register',
+		title: 'Revenue Orchestration System',
+		problem:
+			'Billing and nurse payouts relied on repetitive manual coordination across clinical, finance, and operations, creating latency, human error risk and scaling constraints as visit volume grew.',
+		insight:
+			'Sustainable scale required treating revenue flow as a system, not a series of handoffs.',
+		systemBuilt:
+			'Designed and deployed an automated visit-to-revenue pipeline integrating clinical documentation, invoicing logic and Stripe-based payout scheduling, transforming manual handoffs into event-driven financial infrastructure.',
+		businessShift:
+			'Shifted 85%+ of visits to automated processing, reduced billing time by 75%+, and transformed finance operations from reactive task execution to scalable infrastructure.',
+		artifact: 'Revenue automation dashboard + payout trigger instrumentation',
 	},
 	{
-		title: 'Invoicing and Payout Automation (Float)',
-		challenge:
-			'Billing operations depended on repeated manual work that slowed payouts and consumed team bandwidth at high visit volume.',
-		actions:
-			'Drove automation scope and delivery with engineering and finance stakeholders, then implemented metrics and operational ownership rhythms.',
-		result:
-			'Automated 85%+ of visit volume and cut billing operations time by over 75%, improving speed and reliability of payouts.',
-		artifact: 'Automation dashboard',
+		title: 'PHI Governance & Workflow Modernization',
+		problem:
+			'Clinical document exchange depended on fragmented systems, exposing the organization to HIPAA risk and operational inefficiency.',
+		insight:
+			'Sustainable scale required embedding compliance into infrastructure, not relying on process discipline alone.',
+		systemBuilt:
+			'Architected and led migration to a centralized, HIPAA-compliant document management system with role-based access, audit trails and controlled PHI lifecycle management.',
+		businessShift:
+			'Collapsed PHI exchange time from minutes to seconds while materially reducing compliance exposure and enabling scalable, secure clinical operations.',
+		artifact: 'Launch sequencing plan + enterprise risk mitigation register',
 	},
 ];
 
 const principles = [
-	'Align quickly, document clearly',
-	'De-risk early with milestones',
-	'Keep decision logs visible',
-	'Balance speed with reliability',
+	'Formalize the problem before scaling the solution',
+	'Institutionalize context by replacing tribal knowledge with shared systems',
+	'Surface risk before it compounds',
+	'Move with urgency - build for durability',
 ];
 ---
 

@@ -1,9 +1,10 @@
 ---
 interface CaseStudy {
 	title: string;
-	challenge: string;
-	actions: string;
-	result: string;
+	problem: string;
+	insight: string;
+	systemBuilt: string;
+	businessShift: string;
 	artifact: string;
 }
 
@@ -21,10 +22,11 @@ const { studies, principles } = Astro.props;
 		{studies.map((study, index) => (
 			<article class="study" style={`animation-delay: ${index * 120}ms`}>
 				<h3>{study.title}</h3>
-				<p><strong>Challenge:</strong> {study.challenge}</p>
-				<p><strong>Actions:</strong> {study.actions}</p>
-				<p><strong>Result:</strong> {study.result}</p>
-				<p class="artifact">Artifact signal: {study.artifact}</p>
+				<p><strong>Problem:</strong> {study.problem}</p>
+				<p><strong>Insight:</strong> {study.insight}</p>
+				<p><strong>System Built:</strong> {study.systemBuilt}</p>
+				<p><strong>Business Shift:</strong> {study.businessShift}</p>
+				<p class="artifact"><strong>Artifact:</strong> {study.artifact}</p>
 			</article>
 		))}
 	</div>
