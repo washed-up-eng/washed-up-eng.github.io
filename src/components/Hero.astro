@@ -6,7 +6,7 @@ interface CTASet {
 }
 
 interface Props {
-	eyebrow: string;
+	eyebrow?: string;
 	name: string;
 	subhead: string;
 	valueStatement: string;
@@ -17,7 +17,7 @@ const { eyebrow, name, subhead, valueStatement, ctas } = Astro.props;
 ---
 
 <header class="hero">
-	<p class="eyebrow">{eyebrow}</p>
+	{eyebrow && <p class="eyebrow">{eyebrow}</p>}
 	<h1>{name}</h1>
 	<p class="subhead">{subhead}</p>
 	<p class="value">{valueStatement}</p>
