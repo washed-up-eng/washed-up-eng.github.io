@@ -16,7 +16,11 @@ const { imageSrc, imageAlt, greeting } = Astro.props;
 <style>
 	.hero {
 		display: grid;
-		gap: 1rem;
+		gap: 1.05rem;
+		padding: 1.15rem;
+		border-radius: 1.4rem;
+		background: rgba(245, 253, 252, 0.62);
+		border: 1px solid rgba(21, 91, 90, 0.16);
 	}
 
 	img {
@@ -31,5 +35,6 @@ const { imageSrc, imageAlt, greeting } = Astro.props;
 		margin: 0;
 		font-size: clamp(1.15rem, 2.1vw, 1.4rem);
 		line-height: 1.6;
+		max-width: 46ch;
 	}
 </style>
