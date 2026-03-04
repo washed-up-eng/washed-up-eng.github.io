@@ -1,0 +1,35 @@
+---
+interface Props {
+	imageSrc: string;
+	imageAlt: string;
+	greeting: string;
+}
+
+const { imageSrc, imageAlt, greeting } = Astro.props;
+---
+
+<section class="hero">
+	<img src={imageSrc} alt={imageAlt} />
+	<p>{greeting}</p>
+</section>
+
+<style>
+	.hero {
+		display: grid;
+		gap: 1rem;
+	}
+
+	img {
+		width: 100%;
+		height: clamp(260px, 50vw, 540px);
+		object-fit: cover;
+		border-radius: 1.2rem;
+		border: 1px solid rgba(21, 91, 90, 0.2);
+	}
+
+	p {
+		margin: 0;
+		font-size: clamp(1.15rem, 2.1vw, 1.4rem);
+		line-height: 1.6;
+	}
+</style>
