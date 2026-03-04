@@ -1,9 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import ImpactCards from '../components/ImpactCards.astro';
-import CaseStudyList from '../components/CaseStudyList.astro';
-import CTAFooter from '../components/CTAFooter.astro';
+import SimpleHero from '../components/SimpleHero.astro';
+import InfoSection from '../components/InfoSection.astro';
+import BottomCtas from '../components/BottomCtas.astro';
 
 const heroImage = {
 	src: '/images/hero-placeholder.svg',
@@ -41,41 +40,13 @@ const ctaLinks = {
 
 const microcopy = 'Resume available upon request.';
 
-const ctas = {
-	resume: ctaLinks.requestResume.href,
-	contact: ctaLinks.linkedin.href,
-	github: ctaLinks.github.href,
-};
-
-const impactCards: { title: string; stat: string; detail: string }[] = [];
-const caseStudies: {
-	title: string;
-	problem: string;
-	insight: string;
-	systemBuilt: string;
-	businessShift: string;
-	artifact: string;
-}[] = [];
-const principles: string[] = [];
 ---
 
 <Layout title="Sijae Brown | Technical Program Manager" description="Narrative portfolio for startup TPM leadership and execution impact.">
 	<main>
-		<Hero
-			name="Sijae Brown"
-			subhead="Technical Product Manager"
-			valueStatement="In short, I turn ambiguity into execution, tacit knowledge into systems and ambitious ideas into infrastructure that scales."
-			ctas={ctas}
-		/>
-
-		<ImpactCards cards={impactCards} />
-
-		<CaseStudyList studies={caseStudies} principles={principles} />
-
-		<CTAFooter
-			prompt="If you are hiring a TPM to make high-ambiguity work shippable, let's talk."
-			ctas={ctas}
-		/>
+		<SimpleHero imageSrc={heroImage.src} imageAlt={heroImage.alt} greeting={greeting} />
+		<InfoSection title={info.title} intro={info.intro} photos={infoPhotos} />
+		<BottomCtas links={ctaLinks} microcopy={microcopy} />
 	</main>
 </Layout>
 
