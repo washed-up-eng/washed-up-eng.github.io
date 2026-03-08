@@ -1,0 +1,61 @@
+---
+interface Photo {
+	src: string;
+	alt: string;
+	position?: string;
+}
+
+interface Props {
+	photos: Photo[];
+}
+
+const { photos } = Astro.props;
+const loopPhotos = [...photos, ...photos];
+---
+
+<section class="marquee" aria-label="Scrolling photo highlights">
+	<div class="track">
+		{loopPhotos.map((photo) => (
+			<img src={photo.src} alt={photo.alt} loading="lazy" style={`object-position: ${photo.position ?? '50% 50%'};`} />
+		))}
+	</div>
+</section>
+
+<style>
+	.marquee {
+		overflow: hidden;
+		border-radius: 1.1rem;
+	}
+
+	.track {
+		display: flex;
+		gap: 0.8rem;
+		width: max-content;
+		animation: marquee-scroll 32s linear infinite;
+	}
+
+	img {
+		width: clamp(180px, 24vw, 260px);
+		height: clamp(140px, 20vw, 210px);
+		object-fit: cover;
+		border-radius: 0.85rem;
+		border: 1px solid rgba(21, 91, 90, 0.18);
+		flex: 0 0 auto;
+	}
+
+	@keyframes marquee-scroll {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(calc(-50% - 0.4rem));
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.track {
+			animation: none;
+			transform: none;
+		}
+	}
+</style>

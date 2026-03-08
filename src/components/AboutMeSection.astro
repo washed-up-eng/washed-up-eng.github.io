@@ -1,0 +1,36 @@
+---
+interface Props {
+	title: string;
+	body: string;
+}
+
+const { title, body } = Astro.props;
+---
+
+<section class="about">
+	<h2>{title}</h2>
+	<p>{body}</p>
+</section>
+
+<style>
+	.about {
+		display: grid;
+		gap: 0.8rem;
+		padding: 1.15rem;
+		border-radius: 1.2rem;
+		background: rgba(255, 255, 255, 0.68);
+		border: 1px solid rgba(21, 91, 90, 0.14);
+	}
+
+	h2 {
+		margin: 0;
+		font-family: 'Space Grotesk', sans-serif;
+		font-size: 1.2rem;
+	}
+
+	p {
+		margin: 0;
+		line-height: 1.75;
+		color: var(--steel);
+	}
+</style>
