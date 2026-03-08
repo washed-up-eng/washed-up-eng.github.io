@@ -2,14 +2,15 @@
 interface Props {
 	imageSrc: string;
 	imageAlt: string;
+	imagePosition?: string;
 	greeting: string;
 }
 
-const { imageSrc, imageAlt, greeting } = Astro.props;
+const { imageSrc, imageAlt, imagePosition = '50% 50%', greeting } = Astro.props;
 ---
 
 <section class="hero">
-	<img src={imageSrc} alt={imageAlt} />
+	<img src={imageSrc} alt={imageAlt} style={`object-position: ${imagePosition};`} />
 	<p>{greeting}</p>
 </section>
 
@@ -35,6 +36,6 @@ const { imageSrc, imageAlt, greeting } = Astro.props;
 		margin: 0;
 		font-size: clamp(1.15rem, 2.1vw, 1.4rem);
 		line-height: 1.6;
-		max-width: 46ch;
+		width: 100%;
 	}
 </style>

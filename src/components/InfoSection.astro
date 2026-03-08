@@ -2,6 +2,7 @@
 interface Photo {
 	src: string;
 	alt: string;
+	position?: string;
 }
 
 interface Props {
@@ -17,7 +18,16 @@ const { title, intro, photos } = Astro.props;
 	<h2>{title}</h2>
 	{intro && <p class="intro">{intro}</p>}
 	<div class="grid">
-		{photos.map((photo) => <img src={photo.src} alt={photo.alt} loading="lazy" />)}
+		{
+			photos.map((photo) => (
+				<img
+					src={photo.src}
+					alt={photo.alt}
+					loading="lazy"
+					style={`object-position: ${photo.position ?? '50% 50%'};`}
+				/>
+			))
+		}
 	</div>
 </section>
 
