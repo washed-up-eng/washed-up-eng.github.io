@@ -1,7 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SimpleHero from '../components/SimpleHero.astro';
-import InfoSection from '../components/InfoSection.astro';
+import AboutMeSection from '../components/AboutMeSection.astro';
+import PhotoMarquee from '../components/PhotoMarquee.astro';
+import WorkingOnSection from '../components/WorkingOnSection.astro';
 import BottomCtas from '../components/BottomCtas.astro';
 
 const heroImage = {
@@ -63,7 +65,9 @@ const microcopy = 'Resume available upon request.';
 			imagePosition={heroImage.position}
 			greeting={greeting}
 		/>
-		<InfoSection title={aboutMe.title} intro={aboutMe.body} photos={marqueePhotos} />
+		<AboutMeSection title={aboutMe.title} body={aboutMe.body} />
+		<PhotoMarquee photos={marqueePhotos} />
+		<WorkingOnSection title={workingOn.title} items={workingOn.items} />
 		<BottomCtas links={ctaLinks} microcopy={microcopy} />
 	</main>
 </Layout>
