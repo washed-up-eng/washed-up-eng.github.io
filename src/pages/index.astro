@@ -7,21 +7,34 @@ import BottomCtas from '../components/BottomCtas.astro';
 const heroImage = {
 	src: '/images/me.jpg',
 	alt: 'Sijae Brown portrait',
+	position: '50% 58%',
 };
 
-const greeting = 'Hi, I am Sijae. I love building strong systems and living close to nature.';
+const greeting = "Hey, I'm Sijae. I'm a Senior Product Manager at Float Health. When I'm not at work, you'll find me in the mountains or on the back of my horse.";
 
-const info = {
-	title: 'Info',
-	intro: 'A few snapshots from the way I live and work.',
+const aboutMe = {
+	title: 'About Me',
+	body:
+		"I care about building simple systems that hold up under pressure, and I like spending time outside whenever I can. Most days outside of work you will find me around horses, on mountain trails, or near the water.",
 };
 
-const infoPhotos = [
+const marqueePhotos = [
 	{ src: '/images/me_and_archie.jpg', alt: 'Sijae and Archie' },
 	{ src: '/images/mountains.jpg', alt: 'Mountain landscape' },
 	{ src: '/images/coconut_and_moose.jpg', alt: 'Coconut and Moose' },
-	{ src: '/images/me_and_laney.jpg', alt: 'Sijae and Laney' },
+	{ src: '/images/me_and_laney.jpg', alt: 'Sijae and Laney', position: '50% 80%' },
+	{ src: '/images/me.jpg', alt: 'Sijae portrait in natural light', position: '50% 58%' },
+	{ src: '/images/mountains.jpg', alt: 'Mountain ridgeline at dusk' },
 ];
+
+const workingOn = {
+	title: "Things I'm Working On",
+	items: [
+		'Redesigning this site to better reflect my voice and work.',
+		'Building calmer operating rhythms for high-ambiguity product teams.',
+		'Getting more trail miles and saddle time each week.',
+	],
+};
 
 const ctaLinks = {
 	requestResume: {
@@ -44,8 +57,13 @@ const microcopy = 'Resume available upon request.';
 
 <Layout title="Sijae Brown | Technical Program Manager" description="Narrative portfolio for startup TPM leadership and execution impact.">
 	<main>
-		<SimpleHero imageSrc={heroImage.src} imageAlt={heroImage.alt} greeting={greeting} />
-		<InfoSection title={info.title} intro={info.intro} photos={infoPhotos} />
+		<SimpleHero
+			imageSrc={heroImage.src}
+			imageAlt={heroImage.alt}
+			imagePosition={heroImage.position}
+			greeting={greeting}
+		/>
+		<InfoSection title={aboutMe.title} intro={aboutMe.body} photos={marqueePhotos} />
 		<BottomCtas links={ctaLinks} microcopy={microcopy} />
 	</main>
 </Layout>
