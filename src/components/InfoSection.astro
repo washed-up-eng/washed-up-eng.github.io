@@ -1,0 +1,75 @@
+---
+interface Photo {
+	src: string;
+	alt: string;
+	position?: string;
+}
+
+interface Props {
+	title: string;
+	intro?: string;
+	photos: Photo[];
+}
+
+const { title, intro, photos } = Astro.props;
+---
+
+<section class="info">
+	<h2>{title}</h2>
+	{intro && <p class="intro">{intro}</p>}
+	<div class="grid">
+		{
+			photos.map((photo) => (
+				<img
+					src={photo.src}
+					alt={photo.alt}
+					loading="lazy"
+					style={`object-position: ${photo.position ?? '50% 50%'};`}
+				/>
+			))
+		}
+	</div>
+</section>
+
+<style>
+	.info {
+		display: grid;
+		gap: 1rem;
+		padding: 1.1rem;
+		border-radius: 1.2rem;
+		background: rgba(255, 255, 255, 0.68);
+		border: 1px solid rgba(21, 91, 90, 0.14);
+	}
+
+	h2 {
+		margin: 0;
+		font-family: 'Space Grotesk', sans-serif;
+		font-size: 1.2rem;
+	}
+
+	.intro {
+		margin: 0;
+		line-height: 1.7;
+		color: var(--steel);
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 0.9rem;
+	}
+
+	img {
+		width: 100%;
+		height: clamp(150px, 25vw, 270px);
+		object-fit: cover;
+		border-radius: 1rem;
+		border: 1px solid rgba(21, 91, 90, 0.18);
+	}
+
+	@media (max-width: 720px) {
+		.grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

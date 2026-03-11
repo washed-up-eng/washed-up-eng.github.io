@@ -1,0 +1,65 @@
+---
+interface LinkItem {
+	label: string;
+	href: string;
+}
+
+interface Props {
+	links: {
+		requestResume: LinkItem;
+		linkedin: LinkItem;
+		github: LinkItem;
+	};
+	microcopy: string;
+}
+
+const { links, microcopy } = Astro.props;
+---
+
+<section class="bottom-ctas">
+	<div class="row">
+		<a class="button" href={links.requestResume.href} target="_blank" rel="noreferrer">{links.requestResume.label}</a>
+		<a class="link" href={links.linkedin.href} target="_blank" rel="noreferrer">{links.linkedin.label}</a>
+		<a class="link" href={links.github.href} target="_blank" rel="noreferrer">{links.github.label}</a>
+	</div>
+	<p>{microcopy}</p>
+</section>
+
+<style>
+	.bottom-ctas {
+		display: grid;
+		gap: 0.75rem;
+		padding: 0.35rem 0.2rem 0;
+	}
+
+	.row {
+		display: flex;
+		align-items: center;
+		gap: 0.8rem;
+		flex-wrap: wrap;
+	}
+
+	.button {
+		text-decoration: none;
+		padding: 0.68rem 1rem;
+		border-radius: 0.7rem;
+		font-family: 'Space Grotesk', sans-serif;
+		font-weight: 700;
+		color: #f6fffe;
+		background: linear-gradient(120deg, var(--accent) 0%, var(--accent-soft) 100%);
+	}
+
+	.link {
+		font-family: 'Space Grotesk', sans-serif;
+		font-weight: 700;
+		color: var(--ink);
+		text-underline-offset: 0.2em;
+	}
+
+	p {
+		margin: 0;
+		font-size: 0.92rem;
+		color: var(--steel);
+		line-height: 1.55;
+	}
+</style>

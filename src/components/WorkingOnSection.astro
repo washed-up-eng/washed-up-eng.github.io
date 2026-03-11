@@ -1,0 +1,44 @@
+---
+interface Props {
+	title: string;
+	items: string[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<section class="working-on">
+	<h2>{title}</h2>
+	<ul>
+		{items.map((item) => <li>{item}</li>)}
+	</ul>
+</section>
+
+<style>
+	.working-on {
+		display: grid;
+		gap: 0.9rem;
+		padding: 1.2rem;
+		border-radius: 1.2rem;
+		background: rgba(255, 255, 255, 0.72);
+		border: 1px solid rgba(21, 91, 90, 0.14);
+	}
+
+	h2 {
+		margin: 0;
+		font-family: 'Space Grotesk', sans-serif;
+		font-size: 1.2rem;
+	}
+
+	ul {
+		margin: 0;
+		padding-left: 1.1rem;
+		display: grid;
+		gap: 0.55rem;
+	}
+
+	li {
+		line-height: 1.65;
+		color: var(--steel);
+	}
+</style>

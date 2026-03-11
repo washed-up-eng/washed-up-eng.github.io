@@ -1,114 +1,97 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import ImpactCards from '../components/ImpactCards.astro';
-import CaseStudyList from '../components/CaseStudyList.astro';
-import CTAFooter from '../components/CTAFooter.astro';
+import SimpleHero from '../components/SimpleHero.astro';
+import AboutMeSection from '../components/AboutMeSection.astro';
+import PhotoMarquee from '../components/PhotoMarquee.astro';
+import WorkingOnSection from '../components/WorkingOnSection.astro';
+import BottomCtas from '../components/BottomCtas.astro';
 
-const ctas = {
-	resume: '/resume',
-	contact: 'https://www.linkedin.com/in/sijae-brown-54331489/',
-	github: 'https://github.com/washed-up-eng',
+const heroImage = {
+	src: '/images/me.jpg',
+	alt: 'Sijae Brown portrait',
+	position: '50% 58%',
 };
 
-const impactCards = [
-	{
-		title: 'Automation at scale',
-		stat: '85%+ visit volume automated',
-		detail: 'Led invoicing and payout automation at Float, cutting billing operations time by over 75%.',
-	},
-	{
-		title: 'Clinical platform ownership',
-		stat: '100% of visits supported',
-		detail: 'Spearheaded zero-to-one eChart development powering all patient visits for the last 3 years.',
-	},
-	{
-		title: 'Execution speed + compliance',
-		stat: '8 minutes to seconds',
-		detail: 'Led HIPAA-compliant document workflow modernization, dramatically reducing PHI sharing time.',
-	},
+const greeting = "Hey, I'm Sijae. I'm a Senior Product Manager at Float Health.";
+
+const aboutMe = {
+	title: 'About Me',
+	body: `Originally from the Ozarks and now based in Boulder, Colorado, I'm an ML researcher turned product person with an education in software engineering. Over the past several years I've helped grow an early-stage product from its scrappy beginnings into a platform supporting thousands of patients and nurses each month.
+
+When I'm not working, I'm usually outside. The mountains have become my home where I get to run trails, climb, ski and find quiet places to reset. My favorite thing, though, is riding horses. I love the slow process of building trust with them over time. Horses have taught me that patience, humility, connection and partnership are not the result of force, but from consistently showing up with honesty, vulnerability and openness.`,
+};
+
+const marqueePhotos = [
+	{ src: '/images/me_and_archie.jpg', alt: 'Sijae and Archie' },
+	{ src: '/images/archie.jpg', alt: 'Archie portrait' },
+	{ src: '/images/mountains.jpg', alt: 'Mountain landscape' },
+	{ src: '/images/mx.jpg', alt: 'Mountain adventure moment', position: '50% 95%' },
+	{ src: '/images/mx_p4.jpg', alt: 'Mountain trail snapshot', position: '50% 40%' },
+	{ src: '/images/coconut_and_moose.jpg', alt: 'Coconut and Moose' },
+	{ src: '/images/me_and_laney.jpg', alt: 'Sijae and Laney', position: '50% 80%' },
+	{ src: '/images/vail_ice.jpg', alt: 'Ice route in Vail', position: '50% 20%' },
+	{ src: '/images/sharkstooth1.jpg', alt: 'Sharkstooth approach' },
+	{ src: '/images/sharkstooth_summit.jpg', alt: 'Sharkstooth summit view' },
+	{ src: '/images/france.jpg', alt: 'France travel landscape' },
 ];
 
-const caseStudies = [
-	{
-		title: 'Clinical Staffing Engine',
-		problem:
-			'Staffing decisions relied on tacit operational knowledge and informal coordination, introducing bias, variability and scale constraints under growth pressure.',
-		insight:
-			'Inconsistency was not a people problem; it was a systems problem. Critical matching logic lived in undocumented heuristics, with regulatory constraints and acuity signals applied unevenly across operators.',
-		systemBuilt:
-			'Encoded nurse skillsets, regulatory constraints and patient acuity into a production-grade matching engine, converting tribal knowledge into structured, enforceable decision logic.',
-		businessShift:
-			'Transformed a high-variance, manually curated workflow into scalable infrastructure, unlocking growth without proportional scheduling headcount, standardizing decision quality, and reducing operational entropy.',
-		artifact: 'Matching logic architecture + deployment instrumentation',
-	},
-	{
-		title: 'Revenue Orchestration System',
-		problem:
-			'Billing and nurse payouts relied on repetitive manual coordination across clinical, finance, and operations, creating latency, human error risk and scaling constraints as visit volume grew.',
-		insight:
-			'Sustainable scale required treating revenue flow as a system, not a series of handoffs.',
-		systemBuilt:
-			'Designed and deployed an automated visit-to-revenue pipeline integrating clinical documentation, invoicing logic and Stripe-based payout scheduling, transforming manual handoffs into event-driven financial infrastructure.',
-		businessShift:
-			'Shifted 85%+ of visits to automated processing, reduced billing time by 75%+, and transformed finance operations from reactive task execution to scalable infrastructure.',
-		artifact: 'Revenue automation dashboard + payout trigger instrumentation',
-	},
-	{
-		title: 'PHI Governance & Workflow Modernization',
-		problem:
-			'Clinical document exchange depended on fragmented systems, exposing the organization to HIPAA risk and operational inefficiency.',
-		insight:
-			'Sustainable scale required embedding compliance into infrastructure, not relying on process discipline alone.',
-		systemBuilt:
-			'Architected and led migration to a centralized, HIPAA-compliant document management system with role-based access, audit trails and controlled PHI lifecycle management.',
-		businessShift:
-			'Collapsed PHI exchange time from minutes to seconds while materially reducing compliance exposure and enabling scalable, secure clinical operations.',
-		artifact: 'Launch sequencing plan + enterprise risk mitigation register',
-	},
-];
+const workingOn = {
+	title: "What I'm working on",
+	items: [
+		'Experimenting with AI-assisted workflows to build scalable automations',
+		'Developing an app to help horse owners detect and better understand lameness in their horses',
+		'Training for the Ouray 50 Mile Endurance Run in August 2026',
+	],
+};
 
-const principles = [
-	'Formalize the problem before scaling the solution',
-	'Institutionalize context by replacing tribal knowledge with shared systems',
-	'Surface risk before it compounds',
-	'Move with urgency - build for durability',
-];
+const ctaLinks = {
+	requestResume: {
+		label: 'Request Resume',
+		href: 'https://www.linkedin.com/in/sijae-brown-54331489/',
+	},
+	linkedin: {
+		label: 'LinkedIn',
+		href: 'https://www.linkedin.com/in/sijae-brown-54331489/',
+	},
+	github: {
+		label: 'GitHub',
+		href: 'https://github.com/washed-up-eng',
+	},
+};
+
+const microcopy = 'Resume available upon request.';
+
 ---
 
 <Layout title="Sijae Brown | Technical Program Manager" description="Narrative portfolio for startup TPM leadership and execution impact.">
 	<main>
-		<Hero
-			name="Sijae Brown"
-			subhead="Technical Product Manager"
-			valueStatement="In short, I turn ambiguity into execution, tacit knowledge into systems and ambitious ideas into infrastructure that scales."
-			ctas={ctas}
+		<SimpleHero
+			imageSrc={heroImage.src}
+			imageAlt={heroImage.alt}
+			imagePosition={heroImage.position}
+			greeting={greeting}
 		/>
-
-		<ImpactCards cards={impactCards} />
-
-		<CaseStudyList studies={caseStudies} principles={principles} />
-
-		<CTAFooter
-			prompt="If you are hiring a TPM to make high-ambiguity work shippable, let's talk."
-			ctas={ctas}
-		/>
+		<AboutMeSection title={aboutMe.title} body={aboutMe.body} />
+		<PhotoMarquee photos={marqueePhotos} />
+		<WorkingOnSection title={workingOn.title} items={workingOn.items} />
+		<BottomCtas links={ctaLinks} microcopy={microcopy} />
 	</main>
 </Layout>
 
 <style>
 	main {
-		max-width: 1080px;
+		max-width: 980px;
 		margin: 0 auto;
-		padding: 3.5rem 1.25rem 5rem;
+		padding: 4.4rem 1.4rem 6rem;
 		display: grid;
-		gap: 1.2rem;
+		gap: 1.7rem;
 	}
 
 	@media (max-width: 820px) {
 		main {
-			padding-top: 2.5rem;
-			gap: 1rem;
+			padding-top: 2.4rem;
+			padding-bottom: 3.6rem;
+			gap: 1.2rem;
 		}
 	}
 </style>
