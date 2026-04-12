@@ -19,11 +19,13 @@ const { imageSrc, imageAlt, imagePosition = '50% 50%', greeting } = Astro.props;
 		display: grid;
 		grid-template-columns: minmax(0, 1fr);
 		gap: 1.05rem;
+		height: 100%;
+		align-content: center;
 	}
 
 	img {
 		width: 100%;
-		height: clamp(260px, 56vw, 520px);
+		height: clamp(300px, 58svh, 700px);
 		object-fit: contain;
 	}
 
@@ -42,7 +44,7 @@ const { imageSrc, imageAlt, imagePosition = '50% 50%', greeting } = Astro.props;
 		}
 
 		img {
-			height: clamp(300px, 36vw, 460px);
+			height: clamp(380px, 70svh, 760px);
 		}
 	}
 </style>
