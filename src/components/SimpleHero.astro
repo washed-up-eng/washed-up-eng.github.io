@@ -17,19 +17,14 @@ const { imageSrc, imageAlt, imagePosition = '50% 50%', greeting } = Astro.props;
 <style>
 	.hero {
 		display: grid;
+		grid-template-columns: minmax(0, 1fr);
 		gap: 1.05rem;
-		padding: 1.15rem;
-		border-radius: 1.4rem;
-		background: rgba(245, 253, 252, 0.62);
-		border: 1px solid rgba(21, 91, 90, 0.16);
 	}
 
 	img {
 		width: 100%;
-		height: clamp(260px, 50vw, 540px);
-		object-fit: cover;
-		border-radius: 1.2rem;
-		border: 1px solid rgba(21, 91, 90, 0.2);
+		height: clamp(260px, 56vw, 520px);
+		object-fit: contain;
 	}
 
 	p {
@@ -37,5 +32,17 @@ const { imageSrc, imageAlt, imagePosition = '50% 50%', greeting } = Astro.props;
 		font-size: clamp(1.15rem, 2.1vw, 1.4rem);
 		line-height: 1.6;
 		width: 100%;
+	}
+
+	@media (min-width: 820px) {
+		.hero {
+			grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+			gap: 1.4rem;
+			align-items: center;
+		}
+
+		img {
+			height: clamp(300px, 36vw, 460px);
+		}
 	}
 </style>

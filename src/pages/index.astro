@@ -2,12 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import SimpleHero from '../components/SimpleHero.astro';
 import AboutMeSection from '../components/AboutMeSection.astro';
-import PhotoMarquee from '../components/PhotoMarquee.astro';
 import WorkingOnSection from '../components/WorkingOnSection.astro';
 import BottomCtas from '../components/BottomCtas.astro';
 
 const heroImage = {
-	src: '/images/me.jpg',
+	src: '/images/utah_selfie.jpg',
 	alt: 'Sijae Brown portrait',
 	position: '50% 58%',
 };
@@ -20,20 +19,6 @@ const aboutMe = {
 
 When I'm not working, I'm usually outside. The mountains have become my home where I get to run trails, climb, ski and find quiet places to reset. My favorite thing, though, is riding horses. I love the slow process of building trust with them over time. Horses have taught me that patience, humility, connection and partnership are not created through force, but through consistently showing up with honesty, vulnerability and openness.`,
 };
-
-const marqueePhotos = [
-	{ src: '/images/me_and_archie.jpg', alt: 'Sijae and Archie' },
-	{ src: '/images/archie.jpg', alt: 'Archie portrait' },
-	{ src: '/images/mountains.jpg', alt: 'Mountain landscape' },
-	{ src: '/images/mx.jpg', alt: 'Mountain adventure moment', position: '50% 95%' },
-	{ src: '/images/mx_p4.jpg', alt: 'Mountain trail snapshot', position: '50% 40%' },
-	{ src: '/images/coconut_and_moose.jpg', alt: 'Coconut and Moose' },
-	{ src: '/images/me_and_laney.jpg', alt: 'Sijae and Laney', position: '50% 80%' },
-	{ src: '/images/vail_ice.jpg', alt: 'Ice route in Vail', position: '50% 20%' },
-	{ src: '/images/sharkstooth1.jpg', alt: 'Sharkstooth approach' },
-	{ src: '/images/sharkstooth_summit.jpg', alt: 'Sharkstooth summit view' },
-	{ src: '/images/france.jpg', alt: 'France travel landscape' },
-];
 
 const workingOn = {
 	title: "What I'm working on",
@@ -72,7 +57,6 @@ const microcopy = 'Resume available upon request.';
 			greeting={greeting}
 		/>
 		<AboutMeSection title={aboutMe.title} body={aboutMe.body} />
-		<PhotoMarquee photos={marqueePhotos} />
 		<WorkingOnSection title={workingOn.title} items={workingOn.items} />
 		<BottomCtas links={ctaLinks} microcopy={microcopy} />
 	</main>
